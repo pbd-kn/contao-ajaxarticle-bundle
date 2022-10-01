@@ -1,0 +1,4 @@
+# config/routes.yaml
+pbdkn_ajax_article.controller:
+    resource: ../../Controller
+    type: annotation

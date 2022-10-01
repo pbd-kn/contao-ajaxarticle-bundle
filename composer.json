@@ -1,0 +1,33 @@
+{
+	"name":"pbd-kn/contao-ajaxarticle-bundle",
+	"description":"Ajax Request liefert gerenderte Article zurück",
+	"type":"contao-bundle",
+	"license":"LGPL-3.0-or-later",
+	"authors":[
+		{
+			"name":"Peter Broghammer",
+			"email":"pb-contao@gmx.de",
+			"role":"Developer"
+		}
+	],
+	"support":{
+		"issues":"https://github.com/pbd-kn/contao-ajaxarticle-bundle/issues",
+		"source":"https://github.com/pbd-kn/contao-ajaxarticle-bundle"
+	},
+	"require":{
+		"php": ">=5.6.0",
+		"contao/core-bundle": ">=4.4.4,<5.0"
+	},
+	"conflict": {
+			"contao/manager-plugin": "<2.0 || >=3.0",
+			"symfony/symfony": "3.2.7"
+	},
+	"autoload":{
+			"psr-4": {
+					"PBDKN\\AjaxArticleBundle\\": "src/"
+		}
+	},
+	"extra":{
+		"contao-manager-plugin": "PBDKN\\AjaxArticleBundle\\ContaoManager\\Plugin"
+	}
+}

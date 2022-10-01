@@ -1,0 +1,15 @@
+{# src/Resources/views/bemain.html.twig #}
+{% extends "@ContaoCore/Backend/be_page.html.twig" %}
+
+{% block headline %}
+    Backend Main Controller, Ausgabe über bemain.html.twig
+{% endblock %}
+
+{% block main %}
+    {{ main | raw }}
+    {{ link | raw }}
+{% endblock %}
+{% block error %}
+    <h1 class="text-danger">Error Block</h1>
+
+{% endblock %}

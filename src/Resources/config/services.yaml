@@ -1,0 +1,24 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    _instanceof:
+        Symfony\Bundle\FrameworkBundle\Controller\AbstractController:
+            calls:
+                - [ setContainer, [ '@service_container' ] ]
+
+    PBDKN\AjaxArticleBundle\:
+        resource: ../../
+        exclude: ../../{DependencyInjection,Resources,Model}
+        autowire: true
+        public: true
+
+    PBDKN\AjaxArticleBundle\Controller\Ajax\AjaxArticleRequestClass:        
+        resource: ../../
+        exclude: ../../{DependencyInjection,Resources,Model}
+        autowire: true
+        public: true
+        
+    PBDKN\AjaxArticleBundle\Controller\Ajax\AjaxArticleRequestClass: ~        
