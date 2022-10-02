@@ -14,11 +14,3 @@ services:
         exclude: ../../{DependencyInjection,Resources,Model}
         autowire: true
         public: true
-
-    PBDKN\AjaxArticleBundle\Controller\Ajax\AjaxArticleRequestClass:        
-        resource: ../../
-        exclude: ../../{DependencyInjection,Resources,Model}
-        autowire: true
-        public: true
-        
-    PBDKN\AjaxArticleBundle\Controller\Ajax\AjaxArticleRequestClass: ~        

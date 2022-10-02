@@ -12,8 +12,11 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 
-
-class ContaoAjaxArticleExtension extends Extension
+/* Da die Bundle Klasse "AjaxArticleBundle" lautet siehe ajaxAriticleBundle.php
+ * muss die Dependency Injection Klasse "AjaxArticleExtension" lauten
+ */
+ 
+class AjaxArticleExtension extends Extension
 {
     /**
      * @throws \Exception
@@ -23,8 +26,10 @@ class ContaoAjaxArticleExtension extends Extension
         echo "PBD PBD dependencInjection contao-ajaxarticle-bundle file ContaoAjaxBundleExtension load service";
         $loader = new YamlFileLoader(
             $container,
-            new FileLocator(__DIR__.'/../Resources/config');
-        );       
+            new FileLocator(__DIR__.'/../Resources/config')
+        );
+
         $loader->load('services.yaml');
     }
 }
+
