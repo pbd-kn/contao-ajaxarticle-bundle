@@ -73,7 +73,7 @@ class AjaxArticleRequestClass
            $art
         ); 
         //$art1=htmlspecialchars($art1);       
-		return new JsonResponse(['trans'=>$trans,'id'=>$id,'pageId' => $pObj->id,'article' => $article,'alias' => $alias,'title' =>$title,'artikel'=>$art1]); 
+		return new JsonResponse(['article' => $article,'id'=>$id,'alias' => $alias,'title' =>$title,'artikel'=>$art1]); 
 
 	}
 }
