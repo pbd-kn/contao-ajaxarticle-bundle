@@ -28,7 +28,7 @@ Es wird das js AjaxGetArticle(article) installiert.
 Parameter: article (id oder alias) wird als Popup dargestellt.
 
 z.B
-&lt;button onclick="AjaxGetArticle('test');"&gt; klick</button>
+&lt;button onclick="AjaxGetArticle('test');"&gt; klick&lt;/button&gt;
                                               
 
 
