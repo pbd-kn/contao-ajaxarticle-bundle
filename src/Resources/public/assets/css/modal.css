@@ -1,0 +1,41 @@
+@media screen {
+  .cursor-wait {
+    cursor: wait !important;
+  }
+  .cursor-default {
+    cursor: default !important;
+  }
+  #modal, #id_div {
+    position: absolute;
+    top: 10px;
+    left: 400px;
+    border: var(--bs-border-radius-xl);
+    background-color: var(--bs-gray-400);
+    overflow: auto;
+    border-radius: 1rem;
+  }
+  #modal_close {
+  }
+  #modal_close .close {
+      float: right;
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--bs-green);
+  }
+  #modal_close .close:hover,
+  #modal_close .close:focus {
+      color: var(--bs-link-hover-color);
+      text-decoration: none;
+      cursor: pointer;
+  }
+  #modal_content {
+      width:40rem;
+      height:40rem;
+      overflow: auto;
+      scrollbar-width: thin;
+  }
+  #modal .col-md-2 {
+    display:none;
+  }
+    
+}
