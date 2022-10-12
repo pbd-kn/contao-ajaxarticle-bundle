@@ -17,7 +17,7 @@
     background-color: var(--bs-gray-400);
     border-radius: var(--bs-border-radius-xl);
     width:40rem;
-    height:40rem;
+    //height:40rem;
   }
   #modal_close {
   }
@@ -36,7 +36,8 @@
   #modal_content , #id_div_content {
     overflow: auto;
     scrollbar-width: thin;
-    padding-top: 4rem;
-    padding-left: 2rem;
+    margin-top: 4rem;
+    margin-left: 2rem;
+    height:30rem;
   }
 }
