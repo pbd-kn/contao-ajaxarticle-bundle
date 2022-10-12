@@ -19,6 +19,7 @@
     border-radius: 1rem;
     width:40rem;
     height:40rem;
+    scrollbar-width: thin;
   }
   #modal_close {
   }

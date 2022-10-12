@@ -68,13 +68,23 @@ class AjaxArticleRequestClass extends AbstractController
           $invA=$this->translator->trans('CTE.article.0', [], 'contao_default');
           $invAl=$this->translator->trans('CTE.alias.0', [], 'contao_default');
           
-		  $art = '<p class="error">' . sprintf($invP, $article) . '</p>';
+		      $art = '<p class="error">' . sprintf($invP, $article) . '</p>';
           $art .= "<p>$invA: $article<br>$invAl(alias): $alias  </p>";
         } else {
-          $art =  ltrim($strOutput);
+          $art =  ltrim($strOutput);  
+          // ersetze 16-bit Values
+          $search  = array("\xC3\xA4", "\xC3\xB6", "\xC3\xBC", "\xC3\x84", "\xC3\x9c","\xC3\x9f");
+          $replace = array('ä', 'ö', 'ü', 'Ä', 'Ö','Ü','ß');
+          $art= str_replace($search, $replace, $art);          
         }
         $art = utf8_encode($art);         // json geht nur ordentlich mit utf-8
-        
+        /*
+        $a=json_encode(['article' => $article,'id'=>$id,'alias' => $alias,'title' =>$title,'artikel'=>$art],JSON_UNESCAPED_UNICODE|JSON_HEX_AMP );
+        $response = new Response();
+        $response->setContent($a);
+        $response->headers->set('Content-Type', 'application/json');  
+        $response->setCharset('utf-8');  
+        */
 		$response = new JsonResponse(['article' => $article,'id'=>$id,'alias' => $alias,'title' =>$title,'artikel'=>$art]); 
 		return $response; 
 

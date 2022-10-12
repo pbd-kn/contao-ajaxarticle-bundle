@@ -22,7 +22,8 @@ function AjaxGetArticle(article) {
       success: function(result) {
         cursordefault();                    // cursor zurueck
         div=createPopupDiv('modal');        // return div content container
-        div.innerHTML=result['artikel']; 
+debugger;
+        div.innerHTML=result['artikel'];    
         var modal = document.getElementById("modal"); 
         var span = document.getElementsByClassName("close")[0];
         // When the user clicks on <span> (x), close the modal
