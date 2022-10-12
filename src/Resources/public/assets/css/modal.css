@@ -13,13 +13,11 @@
     top: 10px;
     left: 50%;
     transform: translate(-50%);
-    border: var(--bs-border-radius-xl);
+    border: 1px solid var(--bs-gray-dark);
     background-color: var(--bs-gray-400);
-    overflow: auto;
-    border-radius: 1rem;
+    border-radius: var(--bs-border-radius-xl);
     width:40rem;
     height:40rem;
-    scrollbar-width: thin;
   }
   #modal_close {
   }
