@@ -22,22 +22,28 @@ function AjaxGetArticle(article) {
       success: function(result) {
         cursordefault();                    // cursor zurueck
         div=createPopupDiv('modal');        // return div content container
-debugger;
-        div.innerHTML=result['artikel'];    
+        div.innerHTML=result['artikel']; 
         var modal = document.getElementById("modal"); 
+        dragElement(modal);   
         var span = document.getElementsByClassName("close")[0];
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
           modal.style.display = "none";
           modal.remove(); // Entfernt das div Element mit der id 'div-02'
         }
+        div.onclick = function(e) {
+          e = e || window.event;
+          e.stopPropagation();
+        }
         // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target.id != 'modal_content') {
+        //  Seit move von Div funktioniert das nicht mehr ich habs aufgegeben
+        window.onclick = function(event) {   
+          if (event.target.id != 'modal_header' && event.target.id != 'modal' && event.target.id != 'modal_content') {
             modal.style.display = "none";
             modal.remove(); // Entfernt das div Element mit der id 'div-02'
           }
         }
+
       },
     }
   );
@@ -51,18 +57,18 @@ function createPopupDiv (id) {
   }
 
   // Create the span
-  var span = document.createElement('span');
-  span.className="close";
-  span.innerHTML="&times";          // close
-  var spanDiv = document.createElement('div');
-  spanDiv.id = id + '_close'; 
-  spanDiv.appendChild(span);
+  var cls = document.createElement('span');     // create close Button
+    cls.className="close";
+    cls.innerHTML="&times";          // close
+  
+  var hdrDiv = document.createElement('div');  // create header div
+    hdrDiv.id = id + '_header'; 
+  hdrDiv.appendChild(cls);                    // add closebutton   (float right in css)
   var contenDiv = document.createElement('div');
   contenDiv.id = id + '_content' ;
-  // The variable iDiv is still good... Just append to it.
-  var iDiv = document.createElement('div');
+  var iDiv = document.createElement('div');          // gesamt div
   iDiv.id = id 
-  iDiv.appendChild(spanDiv);
+  iDiv.appendChild(hdrDiv);
   iDiv.appendChild(contenDiv);
 
   // Then append the whole thing onto the body
@@ -71,4 +77,44 @@ function createPopupDiv (id) {
   document.getElementById('container').appendChild(iDiv);
   return contenDiv;
 };
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "_header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "_header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
 

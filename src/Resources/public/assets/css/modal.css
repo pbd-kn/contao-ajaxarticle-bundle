@@ -17,19 +17,24 @@
     background-color: var(--bs-gray-400);
     border-radius: var(--bs-border-radius-xl);
     width:40rem;
-    //height:40rem;
+    z-index:1;
+    height:38rem;
   }
-  #modal_close {
-  
+  #modal_header {
+    height: 3rem;
+    background: var(--bs-gray-200);
+    border-top-left-radius: var(--bs-border-radius-xl);
+    border-top-right-radius: var(--bs-border-radius-xl);
+    cursor: move;
   }
-  #modal_close .close {
+  #modal_header .close {
     float: right;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     color: var(--bs-green);
   }
-  #modal_close .close:hover,
-  #modal_close .close:focus {
+  #modal_header .close:hover,
+  #modal_header .close:focus {
     color: var(--bs-link-hover-color);
     text-decoration: none;
     cursor: pointer;
@@ -40,5 +45,14 @@
     margin-top: 4rem;
     margin-left: 2rem;
     height:30rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  #modal, #id_div {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    width:20rem;
+    transform: none;
   }
 }
