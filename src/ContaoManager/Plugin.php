@@ -24,7 +24,6 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface
      */
     public function getBundles(ParserInterface $parser)
     {
-echo "PBD AjaxArticleBundle Plugin AjaxArticleBundle getBundles\n";
         return [
             BundleConfig::create(AjaxArticleBundle::class)
                 ->setLoadAfter([ContaoCoreBundle::class])
@@ -36,7 +35,6 @@ echo "PBD AjaxArticleBundle Plugin AjaxArticleBundle getBundles\n";
      */
     public function getRouteCollection(LoaderResolverInterface $resolver, KernelInterface $kernel)
     {
-echo "PBD AjaxArticleBundle Plugin AjaxArticleBundle getRouteCollection realpath Resources ". realpath(__DIR__.'/../Resources/config/routes.yaml')."\n";
         return $resolver
             ->resolve(__DIR__.'/../Resources/config/routes.yaml')
             ->load(__DIR__.'/../Resources/config/routes.yaml')

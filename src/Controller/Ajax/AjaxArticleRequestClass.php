@@ -73,7 +73,7 @@ class AjaxArticleRequestClass extends AbstractController
         } else {
           $art =  ltrim($strOutput);  
           // ersetze 16-bit Values
-          $search  = array("\xC3\xA4", "\xC3\xB6", "\xC3\xBC", "\xC3\x84", "\xC3\x9c","\xC3\x9f");
+          $search  = array("\xC3\xA4", "\xC3\xB6", "\xC3\xBC", "\xC3\x84", "\xC3\x96","\xC3\x9f");
           $replace = array('ä', 'ö', 'ü', 'Ä', 'Ö','Ü','ß');
           $art= str_replace($search, $replace, $art);          
         }
