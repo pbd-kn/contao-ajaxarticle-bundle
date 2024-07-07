@@ -23,7 +23,7 @@ class AjaxArticleExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container): void
     {
-        echo "PBD PBD dependencInjection contao-ajaxarticle-bundle file ContaoAjaxBundleExtension load service";
+        //echo "PBD PBD dependencInjection contao-ajaxarticle-bundle file ContaoAjaxBundleExtension load service";
         $loader = new YamlFileLoader(
             $container,
             new FileLocator(__DIR__.'/../Resources/config')
